@@ -7,6 +7,7 @@ A simple python class for purging IRC logs from unneeded messages that clutter y
 
 ```
 % python2
+    import purgeirclog
     pil = purgeirclog.PurgeIRCLog()
     
     pil.log_path = "/home/foo/.irssi/irclogs/#python.log"
