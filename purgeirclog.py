@@ -4,7 +4,8 @@ __copyright__ = "The MIT License (MIT)"
 __copyright_link__ = "http://opensource.org/licenses/MIT"
 
 
-import os
+from os.path import split, join, exists
+from os import mkdir
 
 
 class PurgeIRCLog(object):
@@ -79,15 +80,15 @@ class PurgeIRCLog(object):
             raise BaseException("You must first parse a log")
 
         if kwargs is not None:
-            path = os.path.join(kwargs['path'], os.path.split(self.log_path)[1]) + ".purged"
+            path = join(kwargs['path'], split(self.log_path)[1]) + ".purged"
 
-            if os.path.exists(kwargs['path']) is False:
-                os.mkdir(kwargs['path'])
+            if exists(kwargs['path']) is False:
+                mkdir(kwargs['path'])
 
         else:
             path = self.log_path + ".purged"
 
-        if os.path.exists(path):
+        if exists(path):
             open(path, "w").close()
 
         for line in self.parsed_log:
