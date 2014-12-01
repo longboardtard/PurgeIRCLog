@@ -24,5 +24,5 @@ A simple python class for purging IRC logs from unneeded messages that clutter y
     pil.log_path = log_path
     pil.add_filter(troll_list)
     pil.parse()
-    pil.store("/opt/purgedlogs")
+    pil.store(path="/opt/purgedlogs")
 ```
